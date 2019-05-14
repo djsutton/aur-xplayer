@@ -2,7 +2,7 @@
 
 pkgname=xplayer
 pkgver=2.0.2
-pkgrel=1
+pkgrel=2
 pkgdesc="Simple media player. X-Apps Project."
 arch=('i686' 'x86_64' 'armv7h')
 license=('GPL')
