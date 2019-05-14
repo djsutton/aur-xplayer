@@ -1,0 +1,14 @@
+diff --git a/src/backend/bacon-video-widget.c b/src/backend/bacon-video-widget.c
+index e95dc4b..444413c 100644
+--- a/src/backend/bacon-video-widget.c
++++ b/src/backend/bacon-video-widget.c
+@@ -1715,6 +1715,9 @@ update_orientation_from_video (BaconVideoWidget *bvw)
+   if (bvw->priv->rotation != BVW_ROTATION_R_ZERO)
+     return;
+ 
++  if (bvw->priv->tagcache == NULL)
++    return;
++
+   ret = gst_tag_list_get_string_index (bvw->priv->tagcache,
+ 				       GST_TAG_IMAGE_ORIENTATION, 0, &orientation_str);
+   if (!ret || !orientation_str || g_str_equal (orientation_str, "rotate-0"))

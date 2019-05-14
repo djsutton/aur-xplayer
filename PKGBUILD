@@ -20,9 +20,16 @@ provides=($pkgname)
 conflicts=('xplayer-git')
 url='https://github.com/linuxmint/xplayer'
 
-source=("${pkgname}-${pkgver}.tar.gz::https://github.com/linuxmint/${pkgname}/archive/${pkgver}.tar.gz")
-md5sums=('46526042743d6b0af60bbbb7a4388d66')
+source=("${pkgname}-${pkgver}.tar.gz::https://github.com/linuxmint/${pkgname}/archive/${pkgver}.tar.gz"
+	"update_orientation_check_null.patch")
+md5sums=('46526042743d6b0af60bbbb7a4388d66'
+	 '8bb94143b474c672b8e2b762477b15cd')
 
+
+prepare() {
+	cd "${srcdir}/${pkgname}-${pkgver}"
+	patch --strip=1 --input="${srcdir}/update_orientation_check_null.patch"
+}
 
 build() {
     cd ${srcdir}/${pkgname}-${pkgver}
